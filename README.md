@@ -52,15 +52,16 @@ So if your web page only has 6 images, for example, then it'd really be pointles
 #### HTML Questions:
 
 * What does a `doctype` do?
-`doctype` informs the browser which version of HTML (or XML) you used to write the document. Doctype is a declaration, not a tag; you can also refer to it as "document type declaration", or "DTD" for short
+
+> `doctype` informs the browser which version of HTML (or XML) you used to write the document. Doctype is a declaration, not a tag; you can also refer to it as "document type declaration", or "DTD" for short
 
 * What's the difference between full standards mode, almost standards mode and quirks mode?
-Full standard: strictly adhere to W3C spec  
+
+> Full standard: strictly adhere to W3C spec  
 Almost standard: have some quirks  
 Quirk mode: compact the old website
 * What's the difference between HTML and XHTML?
-
-**Document Structure**
+ **Document Structure**
 XHTML DOCTYPE is mandatory
 The xmlns attribute in <html> is mandatory
 <html>, <head>, <title>, and <body> are mandatory
@@ -78,7 +79,7 @@ Attribute minimization is forbidden
 * How do you serve a page with content in multiple languages?
 * What kind of things must you be wary of when design or developing for multilingual sites?
 * What are `data-` attributes good for?
-set for customr field in HTML element
+> set for customr field in HTML element
 * Consider HTML5 as an open web platform. What are the building blocks of HTML5?
 * Describe the difference between a `cookie`, `sessionStorage` and `localStorage`.
   * cookie have expire date
@@ -86,15 +87,18 @@ set for customr field in HTML element
   * localStorage will remain if you don't clear it manually
 
 * Describe the difference between `<script>`, `<script async>` and `<script defer>`.
-async will load your script asynchronously, that is load it in pararllel with other stuff and execute it immediately after the loading  
+
+> async will load your script asynchronously, that is load it in pararllel with other stuff and execute it immediately after the loading  
 defer will load your script asynchronously as well, but it will execute it after all the document has been parsed and just before `DOMContentLoaded`
 
 * Why is it generally a good idea to position CSS `<link>`s between `<head></head>` and JS `<script>`s just before `</body>`? Do you know any exceptions?
 The browser will start to show the content only when css is loaded, so we put the css to the top of our webpage.  
-The js will need to wait till last because we will try to present the visual element in the webpage while js is loading, besides js can only manipulate the dom tree after the dom tree has been parsed.
+
+> The js will need to wait till last because we will try to present the visual element in the webpage while js is loading, besides js can only manipulate the dom tree after the dom tree has been parsed.
 
 * What is progressive rendering?
-Progressive rendering is the name given to techniques used to render content for display as quickly as possible.
+
+> Progressive rendering is the name given to techniques used to render content for display as quickly as possible.
 
 It used to be much more prevalent in the days before broadband internet but it's still useful in modern development as mobile data connections are becoming increasingly popular (and unreliable!)
 
@@ -104,13 +108,14 @@ Lazy loading of images where (typically) some javascript will load an image when
 Prioritizing visible content (or above the fold rendering) where you include only the minimum css/content/scripts necessary for the amount of page that would be rendered in the users browser first to display as quickly as possible, you can then use deferred javascript (domready/load) to load in other resources and content.
 * Have you used different HTML templating languages before?
 
-I have used EJS for my Node.js Project
+>I have used EJS for my Node.js Project
 I have heard of Jade.
 
 #### CSS Questions:
 
 * What is the difference between classes and IDs in CSS?
-ID should be unique
+
+> ID should be unique
 classes don't have to be unique
 
 * What's the difference between "resetting" and "normalizing" CSS? Which would you choose, and why?
@@ -127,30 +132,48 @@ clear: both
 overflow
 empty div
 * Explain CSS sprites, and how you would implement them on a page or site.  
-Multiple Image combined together into a single image. The image then use background-position to show different part of it. It help to increase the page load speed since it reduce the number of HTTP request.
+
+> Multiple Image combined together into a single image. The image then use background-position to show different part of it. It help to increase the page load speed since it reduce the number of HTTP request.
 
 * What are your favourite image replacement techniques and which do you use when?
-lazy loading
+
 
 * How would you approach fixing browser-specific styling issues?
+
+> check browser
 
 * How do you serve your pages for feature-constrained browsers?
   * What techniques/processes do you use?
 * What are the different ways to visually hide content (and make it available only for screen readers)?
-`visibility: hidden`
+
+> `visibility: hidden`
+
 * Have you ever used a grid system, and if so, what do you prefer?
-Bootstrap
+
+> Bootstrap
+
 * Have you used or implemented media queries or mobile specific layouts/CSS?
+
+> Yes.
+
 * Are you familiar with styling SVG?
 
 * How do you optimize your webpages for print?
-Use an extra style sheet for printing
+
+> Use an extra style sheet for printing
+
 * What are some of the "gotchas" for writing efficient CSS?
 * What are the advantages/disadvantages of using CSS preprocessors?
   * Describe what you like and dislike about the CSS preprocessors you have used.
 * How would you implement a web design comp that uses non-standard fonts?
 * Explain how a browser determines what elements match a CSS selector.
+
+> Right to left
+
 * Describe pseudo-elements and discuss what they are used for.
+
+> `::after`, `::before`, `:: cue`, `::first-letter`, etc are pseudo-elements, `:hover`, `:active` are pseudo classes.
+
 * Explain your understanding of the box model and how you would tell the browser in CSS to render your layout in different box models.
 border-box: height and width includes the content, padding and border.
 content-box: height and width only includes the content.
@@ -158,15 +181,29 @@ content-box: height and width only includes the content.
 * What does ```* { box-sizing: border-box; }``` do? What are its advantages?  
 Tell the browser to user the border-box model instead of the content box model.
 * List as many values for the display property that you can remember.
+
+> `flex`, `block`, `inline`, `inline-block`, `table`
+
 * What's the difference between inline and inline-block?
-inline dosen't have width, height, cannot set top and bottom margin/padding
+
+> inline dosen't have width, height, cannot set top and bottom margin/padding
+
 * What's the difference between a relative, fixed, absolute and statically positioned element?
-fixed and absolute set the element to not be in the document flow
+
+> fixed and absolute set the element to not be in the document flow
 
 * The 'C' in CSS stands for Cascading.  How is priority determined in assigning styles (a few examples)?  How can you use this system to your advantage?
+
+> The more specific, the higher the priority
+
 * What existing CSS frameworks have you used locally, or in production? How would you change/improve them?
-Bootstrap
+
+> Bootstrap, Materialize
+
 * Have you played around with the new CSS Flexbox or Grid specs?
+
+> Been learning grid system now
+
 * How is responsive design different from adaptive design?
 * Have you ever worked with retina graphics? If so, when and what techniques did you use?
 * Is there any reason you'd want to use `translate()` instead of *absolute positioning*, or vice-versa? And why?
@@ -175,23 +212,55 @@ Bootstrap
 
 * Explain event delegation
 * Explain how `this` works in JavaScript
+
+> 1. Called with new? Use the newly constructed object.
+> 2. Called with call or apply (or bind)? Use the specified object.
+> 3. Called with a context object owning the call? Use that context object.
+> 4. Default: undefined in strict mode, global object otherwise.
+
 * Explain how prototypal inheritance works
 * What do you think of AMD vs CommonJS?
 * Explain why the following doesn't work as an IIFE: `function foo(){ }();`.
   * What needs to be changed to properly make it an IIFE?
-add brackets
+
+> add brackets `function foo(){ }();`
+
 * What's the difference between a variable that is: `null`, `undefined` or undeclared?
   * How would you go about checking for any of these states?
+
 * What is a closure, and how/why would you use one?
+```javascript
+function init() {
+  var name = 'Mozilla'; // name is a local variable created by init
+  function displayName() { // displayName() is the inner function, a closure
+    alert(name); // use variable declared in the parent function    
+  }
+  displayName();    
+}
+init();
+```
+
+> Closure is used widely in functioning programming 
+
 * What's a typical use case for anonymous functions?
+
+> As a callback function
+
 * How do you organize your code? (module pattern, classical inheritance?)
 * What's the difference between host objects and native objects?
+
+> A few examples:
+Native objects: `Object` (constructor), `Date`, `Math`, `parseInt`, `eval`, string methods like `indexOf` and `replace`, array methods, ...
+Host objects (assuming browser environment): `window`, `document`, `location`, `history`, `XMLHttpRequest`, `setTimeout`, `getElementsByTagName`, `querySelectorAll`, ...
+
 * Difference between: `function Person(){}`, `var person = Person()`, and `var person = new Person()`?
 declaration expression constructor respectively
 
 * What's the difference between `.call` and `.apply`?
-.call(this, arguemnts1, arguments2, ...)
-.apply(this, [arguments1, arguments2, ...])
+
+> `.call(this, arguemnts1, arguments2, ...)`
+> `.apply(this, [arguments1, arguments2, ...])`
+
 * Explain `Function.prototype.bind`.
 
 * When would you use `document.write()`?
@@ -201,19 +270,31 @@ declaration expression constructor respectively
 * Explain how JSONP works (and how it's not really Ajax).
 * Have you ever used JavaScript templating?
   * If so, what libraries have you used?
-  EJS, etx.
+
+> EJS, etx.
+
 * Explain "hoisting".
-process the variable and function declaration before other code
+
+> process the variable and function declaration before other code
+
 * Describe event bubbling.
-event emitted from child elements to their respective parent element
+
+> event emitted from child elements to their respective parent element
+
 * What's the difference between an "attribute" and a "property"?
-attribute is a term used in HTML
+
+> attribute is a term used in HTML
 property is used for object
+
 * Why is extending built-in JavaScript objects not a good idea?
-It might cause some undesired side effect
+
+> It might cause some undesired side effect
+
 * Difference between document load event and document DOMContentLoaded event?
 * What is the difference between `==` and `===`?
-== will do coercion when the two are not the same type
+
+> == will do coercion when the two are not the same type
+
 * Explain the same-origin policy with regards to JavaScript.
 
 * Make this work:
@@ -224,7 +305,9 @@ duplicate([1,2,3,4,5]); // [1,2,3,4,5,1,2,3,4,5]
 function duplicate(array) {return array.concat(array)}
 ```
 * Why is it called a Ternary expression, what does the word "Ternary" indicate?
-"Ternary" means composed of three parts, it's the only JS operator that take in three operands
+
+> "Ternary" means composed of three parts, it's the only JS operator that take in three operands
+
 * What is `"use strict";`? what are the advantages and disadvantages to using it?
 * Create a for loop that iterates up to `100` while outputting **"fizz"** at multiples of `3`, **"buzz"** at multiples of `5` and **"fizzbuzz"** at multiples of `3` and `5`
 ```
@@ -252,9 +335,11 @@ for(var i = 0; i <20; i++) {
   * What is an example of an immutable object in JavaScript?
   * What are the pros and cons of immutability?
   * How can you achieve immutability in your own code?
-  only object and array is mutable, primitive are immutable.
+
+> only object and array is mutable, primitive are immutable.
   Use `Object.freeze` to freeze code.
   mutable means can be changed. primitive cannot be changed once it is created. we can only change its pointer.
+
 * Explain the difference between synchronous and asynchronous functions.
 * What is event loop?
   * What is the difference between call stack and task queue?
@@ -277,9 +362,12 @@ function declaration will be hoisted while function expression won't be.
 #### Network Questions:
 
 * Traditionally, why has it been better to serve site assets from multiple domains?
-Allow parallization to improve speed
+
+> Allow parallization to improve speed
+
 * Do your best to describe the process from the time you type in a website's URL to it finishing loading on your screen.
-URL converts to IP address through UDP request
+
+> URL converts to IP address through UDP request
 three way handshake to establish the TCP connection
 Http get request is sent to retrieve HTML, CSS, JS and other assets(if image on the other domain then the above process will repeat)
 additional request might be sent to backend API to obtained some other data
