@@ -314,16 +314,19 @@ function duplicate(array) {return array.concat(array)}
 var returnString;
 for(var i = 0; i <20; i++) {
   returnString = "";
-  if (i%3===0) {
+  if (i%3 === 0) {
     returnString += "fizz";
   }
-  if (i%5===0) {
+  if (i%5 === 0) {
     returnString += "buzz";
   }
   console.log(returnString, i)
 }
 ```
 * Why is it, in general, a good idea to leave the global scope of a website as-is and never touch it?
+
+> Avoid the contamination of the global environment and avoid unexpected user manipulation.
+
 * Why would you use something like the `load` event? Does this event have disadvantages? Do you know any alternatives, and why would you use those?
 * Explain what a single page app is and how to make one SEO-friendly.
 * What is the extent of your experience with Promises and/or their polyfills?
@@ -399,7 +402,17 @@ var foo = 10 + '20';
 add(2, 5); // 7
 add(2)(5); // 7
 ```
-
+```javascript
+function add() {
+  if (arguments.length === 2) {
+    return arguments[0] + arguments[1];
+  }else if (arguments.length === 1) {
+    return function(addedNum) {
+      return arguments[0] + addedNum;
+    }
+  }
+}
+```
 
 *Question: What value is returned from the following statement?*
 ```javascript
@@ -411,7 +424,7 @@ add(2)(5); // 7
 ```javascript
 ( window.foo || ( window.foo = "bar" ) );
 ```
-the expression in `window.foo` will be executed before the OR operator due to operator precedence, so the value of window.foo is bar.
+the expression in `window.foo` will be executed before the OR operator due to operator precedence, so the value of window.foo is bar. And The OR operator returns the first expression if it is truthy.
 
 *Question: What is the outcome of the two alerts below?*
 ```javascript
@@ -422,7 +435,7 @@ var foo = "Hello";
 })();
 alert(foo + bar);
 ```
-first will execute, second will throw a reference error
+>First will execute, second will throw a reference error
 
 
 
@@ -432,7 +445,7 @@ var foo = [];
 foo.push(1);
 foo.push(2);
 ```
-no trick here, 2
+>no trick here, 2
 
 *Question: What is the value of `foo.x`?*
 ```javascript
@@ -456,9 +469,7 @@ setTimeout(function() {
 }, 0);
 console.log('three');
 ```
-one
-three
-two
+> `one`, `three`, `two`, `setTimeout` is async.
 
 #### Fun Questions:
 
